@@ -54,7 +54,7 @@
 
     monokai-theme
 
-    markdown
+    markdown-mode
 
     ;; allow ido usage in as many contexts as possible. see
     ;; customizations/better-defaults.el line 47 for a description
