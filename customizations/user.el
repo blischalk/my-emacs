@@ -27,11 +27,18 @@ The insertion will be repeated COUNT times."
 ;;  (global-set-key (kbd "s-=") 'text-scale-increase)
 ;;  (global-set-key (kbd "s--") 'text-scale-decrease))
 
+
+(setq-default indent-tabs-mode nil) ; use spaces
+
 ;; Set the default tab width
-(setq tab-width 2)
+(setq-default tab-width 2)
 
 ;; Set the indention level for javascript
 (setq js-indent-level 2)
+
+(setq css-indent-offset 2)
+
+(setq-default evil-shift-width 2)
 
 ;; Set the default font size
 (set-face-attribute 'default nil :height 150)
@@ -47,14 +54,14 @@ The insertion will be repeated COUNT times."
 (global-whitespace-mode t)
 
 ;; Helm
-;;(require 'helm-config)
-;;(global-set-key (kbd "C-c h") 'helm-mini)
-;;(helm-mode 1)
+(require 'helm-config)
+(global-set-key (kbd "C-c h") 'helm-mini)
+(global-set-key (kbd "M-x") 'helm-M-x)
+(helm-mode 1)
 
 
 ;; Add mit scheme
 (setq scheme-program-name "/usr/local/bin/scheme")
-(global-set-key (kbd "M-x") 'helm-M-x)
 
 
 ;; clj-refactor
@@ -73,3 +80,8 @@ The insertion will be repeated COUNT times."
     (insert (calendar-date-string (calendar-current-date) nil
 				  omit-day-of-week-p)))
 (global-set-key "\C-x\M-d" `insdate-insert-current-date)
+
+(defun my/ruby-minor-modes ()
+  (electric-indent-mode))
+
+(add-hook 'ruby-mode-hook 'my/ruby-minor-modes)
