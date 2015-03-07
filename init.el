@@ -9,7 +9,13 @@
 (add-to-list 'package-archives
              '("tromey" . "http://tromey.com/elpa/") t)
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+             '("melpa" . "http://melpa.org/packages/") t)
+;; (add-to-list 'package-archives
+;;              '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+
+;; If you have problems with cider...
+;; Blow away packages and uncomment the following line
+;;(add-to-list 'package-pinned-packages '(cider . "melpa-stable"))
 
 ;; (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
 ;;                          ("marmalade" . "http://marmalade-repo.org/packages/")
@@ -59,6 +65,14 @@
     web-mode
 
     php-mode
+
+    yaml-mode
+
+    clojure-quick-repls
+
+    clj-refactor
+
+    python-mode
 
     ;; allow ido usage in as many contexts as possible. see
     ;; customizations/better-defaults.el line 47 for a description

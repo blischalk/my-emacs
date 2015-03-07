@@ -1,0 +1,7 @@
+ls
+pwd
+(pwd)
+(+ 1 1)
+((lambda (a) (+ a 1)) 5)
+cd ../../
+rspec

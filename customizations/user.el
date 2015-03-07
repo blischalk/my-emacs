@@ -65,11 +65,10 @@ The insertion will be repeated COUNT times."
 
 
 ;; clj-refactor
-;;(require 'clj-refactor)
-;;(add-hook 'clojure-mode-hook (lambda ()
- ;;                              (clj-refactor-mode 1)
-                               ;; insert keybinding setup here
-  ;;                             ))
+(require 'clj-refactor)
+(add-hook 'clojure-mode-hook (lambda ()
+                               (clj-refactor-mode 1)
+                               (cljr-add-keybindings-with-prefix "C-c C-t")))
 
 (require 'calendar)
 (defun insdate-insert-current-date (&optional omit-day-of-week-p)
@@ -85,3 +84,9 @@ The insertion will be repeated COUNT times."
   (electric-indent-mode))
 
 (add-hook 'ruby-mode-hook 'my/ruby-minor-modes)
+
+(defun my-web-mode-hook ()
+  "Hooks for Web mode."
+  (setq web-mode-markup-indent-offset 2))
+
+(add-hook 'web-mode-hook  'my-web-mode-hook)
