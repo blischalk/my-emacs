@@ -5,3 +5,42 @@ pwd
 ((lambda (a) (+ a 1)) 5)
 cd ../../
 rspec
+lein autotest
+lein autotest
+lein autotest
+lein autotest
+:q
+Could not transfer artifact deputydawg:deputydawg:pom:163fc71 from/to heimat (s3://clojure-stuffz/releases/): Could not connect to repositoryw
+ls
+cd themes/
+cd alberta/
+git pull
+hexo
+cd ../../
+hexo
+cd ..
+hexo
+ls
+ls -la
+ls
+hexo
+hexo help
+hexo help
+ls
+cd live-simply/
+npm install
+ls
+hexo help
+hexo list
+hexo help
+hexo new
+hexo new draft live-simply-simply-live
+hexo publish
+hexo publish live-simply-simply-live
+ls
+ls source/
+ls source/_drafts/
+ls source/_posts/
+rm source/_posts/hello-world.md 
+rm source/_posts/live-simply-simply-live.md
+hexo new live-simply-simply-live

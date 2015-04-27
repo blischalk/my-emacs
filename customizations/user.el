@@ -1,4 +1,7 @@
+(load-theme 'tomorrow-night-bright t)
 (load-theme 'monokai t)
+(load-theme 'hipster t)
+(load-theme 'seti t)
 
 ;; My customizations
 
@@ -35,6 +38,9 @@ The insertion will be repeated COUNT times."
 
 ;; Set the indention level for javascript
 (setq js-indent-level 2)
+
+(add-hook 'js-mode-hook 'js2-minor-mode)
+(add-hook 'js2-mode-hook 'ac-js2-mode)
 
 (setq css-indent-offset 2)
 
@@ -90,3 +96,56 @@ The insertion will be repeated COUNT times."
   (setq web-mode-markup-indent-offset 2))
 
 (add-hook 'web-mode-hook  'my-web-mode-hook)
+
+
+; Speclj
+(put-clojure-indent 'describe 1)
+(put-clojure-indent 'describe-server 1)
+(put-clojure-indent 'it 1)
+(put-clojure-indent 'before-all 1)
+(put-clojure-indent 'after-all 1)
+(put-clojure-indent 'before 1)
+(put-clojure-indent 'after 1)
+
+
+(add-hook 'haskell-mode-hook 'haskell-indent-mode)
+(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+
+(mapc (lambda (s) (put-clojure-indent s 'defun))
+      '(GET* PUT* DELETE* POST* PATCH* context))
+
+(mapc (lambda (s) (put-clojure-indent s 1))
+      '(describe describe-server it before-all after-all before after
+                init-state render render-state will-mount did-mount should-update
+                will-receive-props will-update did-update display-name will-unmount
+                describe-with-db describe-with-server swaggered))
+
+
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+
+(setq web-mode-enable-auto-pairing )
+
+(require 'yasnippet)
+(yas-global-mode 1)
+
+(defun my-web-mode-hook ()
+  "Hooks for Web mode."
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+)
+(add-hook 'web-mode-hook  'my-web-mode-hook)
+
+
+(setq processing-location "/usr/bin/processing-java")
+(setq processing-application-dir "/Applications/Processing.app")
+(setq processing-sketchbook-dir "~/Documents/Processing")
+(setq processing-output-dir "/tmp")
