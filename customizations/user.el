@@ -149,3 +149,26 @@ The insertion will be repeated COUNT times."
 (setq processing-application-dir "/Applications/Processing.app")
 (setq processing-sketchbook-dir "~/Documents/Processing")
 (setq processing-output-dir "/tmp")
+
+;; OrgMode PlantUML Stuff
+(org-babel-do-load-languages
+  'org-babel-load-languages
+  '((sh . t)
+    (clojure . t)
+    (plantuml . t)))
+
+(defun my-org-confirm-babel-evaluate (lang body)
+    (and
+    (not (string= lang "lisp"))
+    (not (string= lang "emacs-lisp"))
+    (not (string= lang "plantuml"))
+    (not (string= lang "clojure"))))
+  (setq org-confirm-babel-evaluate 'my-org-confirm-babel-evaluate)
+
+(setq org-plantuml-jar-path
+      (expand-file-name "~/bin/plantuml.jar"))
+
+;; Enable font resizing
+(when window-system
+    (global-set-key (kbd "s-=") 'text-scale-increase)
+    (global-set-key (kbd "s--") 'text-scale-decrease))
