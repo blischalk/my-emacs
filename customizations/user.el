@@ -172,3 +172,14 @@ The insertion will be repeated COUNT times."
 (when window-system
     (global-set-key (kbd "s-=") 'text-scale-increase)
     (global-set-key (kbd "s--") 'text-scale-decrease))
+
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+
+
+;; Show the manual entry for a item
+(global-set-key  [f1] (lambda () (interactive) (manual-entry (current-word))))
+
+;; Fix c indentation
+(setq c-default-style "linux"
+          c-basic-offset 4)
