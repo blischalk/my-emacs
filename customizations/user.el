@@ -183,3 +183,25 @@ The insertion will be repeated COUNT times."
 ;; Fix c indentation
 (setq c-default-style "linux"
           c-basic-offset 4)
+
+;; Convert json to a clojure map
+(defun json->clj-map ()
+  (interactive)
+  (when (region-active-p)
+    (replace-regexp "null" "nil"
+                    nil (region-beginning) (region-end))
+    (replace-regexp "\\(\"\\([A-z0-9_-]+\\)\"\s*:\\)" ":\\2 "
+                    nil (region-beginning) (region-end))
+    (replace-regexp "," ""
+                    nil (region-beginning) (region-end))))
+
+(global-set-key (kbd "C-c C-j h") 'json->clj-map)
+
+;; Enable paredit for Racket
+(add-hook 'racket-mode-hook
+          '(lambda ()
+             (paredit-mode)
+             (local-set-key (kbd "C-j") 'racket-send-last-sexp)
+             (local-set-key (kbd "C-c C-j") 'racket-send-region)
+             (local-set-key (kbd "C-c C-s") 'racket-repl)
+             (local-set-key (kbd "C-c C-p") 'clipboard-yank)))
