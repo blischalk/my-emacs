@@ -95,6 +95,9 @@
     ;; edit html tags like sexps
     tagedit
 
+    ;; company completion
+    company
+
     ;; git integration
     magit))
 

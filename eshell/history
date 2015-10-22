@@ -44,3 +44,9 @@ ls source/_posts/
 rm source/_posts/hello-world.md 
 rm source/_posts/live-simply-simply-live.md
 hexo new live-simply-simply-live
+ls
+pwd
+pwd
+cd /usr/share/
+ls
+r

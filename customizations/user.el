@@ -1,7 +1,7 @@
 (load-theme 'tomorrow-night-bright t)
-(load-theme 'monokai t)
 (load-theme 'hipster t)
 (load-theme 'seti t)
+(load-theme 'monokai t)
 
 ;; My customizations
 
@@ -111,8 +111,8 @@ The insertion will be repeated COUNT times."
 (add-hook 'haskell-mode-hook 'haskell-indent-mode)
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 
-(mapc (lambda (s) (put-clojure-indent s 'defun))
-      '(GET* PUT* DELETE* POST* PATCH* context))
+(mapc (lambda (s) (put-clojure-indent s 2))
+      '(GET* POST* PUT* DELETE* PATCH* context*))
 
 (mapc (lambda (s) (put-clojure-indent s 1))
       '(describe describe-server it before-all after-all before after
@@ -205,3 +205,6 @@ The insertion will be repeated COUNT times."
              (local-set-key (kbd "C-c C-j") 'racket-send-region)
              (local-set-key (kbd "C-c C-s") 'racket-repl)
              (local-set-key (kbd "C-c C-p") 'clipboard-yank)))
+
+;; Enable company mode in all buffers
+(add-hook 'after-init-hook 'global-company-mode)
