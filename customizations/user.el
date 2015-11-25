@@ -1,3 +1,4 @@
+(require 'jka-compr)
 (load-theme 'tomorrow-night-bright t)
 (load-theme 'hipster t)
 (load-theme 'seti t)
@@ -208,3 +209,14 @@ The insertion will be repeated COUNT times."
 
 ;; Enable company mode in all buffers
 (add-hook 'after-init-hook 'global-company-mode)
+
+;; Steve Yegge's stuff
+;; https://sites.google.com/site/steveyegge2/effective-emacs
+(global-set-key "\C-w" 'backward-kill-word)
+(global-set-key "\C-x\C-k" 'kill-region)
+(global-set-key "\C-c\C-k" 'kill-region)
+
+
+;; Magit key bindings
+(global-set-key "\C-cms" 'magit-status)
+(global-set-key "\C-cml" 'magit-log)
