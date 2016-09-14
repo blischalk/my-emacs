@@ -1,52 +1,128 @@
-ls
-pwd
-(pwd)
-(+ 1 1)
-((lambda (a) (+ a 1)) 5)
+lein autotest
+lein autotest
 cd ../../
-rspec
-lein autotest
-lein autotest
-lein autotest
-lein autotest
-:q
-Could not transfer artifact deputydawg:deputydawg:pom:163fc71 from/to heimat (s3://clojure-stuffz/releases/): Could not connect to repositoryw
+git branch
+git checkout -b PD-1977
+cd ~/exercism/haskell
+cd triangle/
 ls
-cd themes/
-cd alberta/
-git pull
-hexo
-cd ../../
-hexo
+runhaslekk -Wall triangle_test.hs 
+runhaskell -Wall triangle_test.hs 
+runhaskell -Wall triangle_test.hs 
+runhaskell -Wall triangle_test.hs 
+runhaskell -Wall triangle_test.hs 
+runhaskell -Wall triangle_test.hs 
+runhaskell -Wall triangle_test.hs 
+runhaskell -Wall triangle_test.hs 
+runhaskell -Wall triangle_test.hs 
+runhaskell -Wall triangle_test.hs 
+runhaskell -Wall triangle_test.hs 
+runhaskell -Wall triangle_test.hs 
+runhaskell -Wall triangle_test.hs 
+runhaskell -Wall triangle_test.hs 
+runhaskell -Wall triangle_test.hs 
+runhaskell -Wall triangle_test.hs 
+runhaskell -Wall triangle_test.hs 
+runhaskell -Wall triangle_test.hs 
+runhaskell -Wall triangle_test.hs 
+runhaskell -Wall triangle_test.hs 
+runhaskell -Wall triangle_test.hs 
+runhaskell -Wall triangle_test.hs 
+runhaskell -Wall triangle_test.hs 
+runhaskell -Wall triangle_test.hs 
+runhaskell -Wall triangle_test.hs 
+runhaskell -Wall triangle_test.hs 
+runhaskell -Wall triangle_test.hs 
+runhaskell -Wall triangle_test.hs 
+git status
+git add .
+git commit -m "Triangle solution."
+git push
+exercism submit Triangle.hs
+exercism fetch haskell
+cd ../scrabble-score/
+ls
+cat scrabble-score_test.hs 
+touch Scrabble.hs
+runhaskell -Wall scrabble-score_test.hs
+exercism submit Scrabble.hs
+exercism fetch haskell
+touch Roman.hs
+./run
+./run
+./run
+./run
+./run
+./run
+./run
+./run
+./run
+./run
+./run
+./run
+./run
+./run
+./run
+ls
+cd ~/
+ls
+touch foobarbaz.tx
+mv foobarbaz.tx ~/Desktop
+cd ~/Desktop/
+ls
+exit
+lein spec -a
+exit
+ls
+./check-es-heap.rb
+cd ~/olab/chef-olab-sensu/
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb
+gem install sensu-plugin
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb
+gem install rest-client
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb elasticsearch.staging.opinionlab.com
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb elasticsearch.staging.opinionlab.com
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb -s elasticsearch.staging.opinionlab.com
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb -s elasticsearch.staging.opinionlab.com
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb -s elasticsearch.staging.opinionlab.com
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb -s elasticsearch.staging.opinionlab.com
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb -s elasticsearch.staging.opinionlab.com
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb -s elasticsearch.staging.opinionlab.com
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb -s elasticsearch.staging.opinionlab.com
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb -s elasticsearch.staging.opinionlab.com
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb -s elasticsearch.staging.opinionlab.com
+gem install awesome_print
+gem install awesome_print
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb -s elasticsearch.staging.opinionlab.com
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb -s elasticsearch.staging.opinionlab.com
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb -s elasticsearch.staging.opinionlab.com
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb -s elasticsearch.staging.opinionlab.com
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb -s elasticsearch.staging.opinionlab.com
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb -s elasticsearch.staging.opinionlab.com
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb -s elasticsearch.staging.opinionlab.com
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb -s elasticsearch.staging.opinionlab.com
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb -s elasticsearch.staging.opinionlab.com
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb -s elasticsearch.staging.opinionlab.com
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb -s elasticsearch.staging.opinionlab.com
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb -s elasticsearch.staging.opinionlab.com
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb -s elasticsearch.staging.opinionlab.com
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb -s elasticsearch.staging.opinionlab.com
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb -s elasticsearch.staging.opinionlab.com
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb -s elasticsearch.staging.opinionlab.com
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb -s elasticsearch.staging.opinionlab.com
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb -s elasticsearch.staging.opinionlab.com
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb -s elasticsearch.staging.opinionlab.com
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb -s elasticsearch.staging.opinionlab.com
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb -s elasticsearch.staging.opinionlab.com -c 25
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb -s elasticsearch.staging.opinionlab.com -c 80
+files/default/sensu-community-plugins/plugins/elasticsearch/check-es-heap.rb -s elasticsearch.staging.opinionlab.com -c 80 -w 80
+git diff
 cd ..
-hexo
-ls
-ls -la
-ls
-hexo
-hexo help
-hexo help
-ls
-cd live-simply/
-npm install
-ls
-hexo help
-hexo list
-hexo help
-hexo new
-hexo new draft live-simply-simply-live
-hexo publish
-hexo publish live-simply-simply-live
-ls
-ls source/
-ls source/_drafts/
-ls source/_posts/
-rm source/_posts/hello-world.md 
-rm source/_posts/live-simply-simply-live.md
-hexo new live-simply-simply-live
-ls
-pwd
-pwd
-cd /usr/share/
-ls
-r
+npm test --autotest
+npm autotest
+npm autotest
+npm autotest
+npm run autotest
+npm run autotest

@@ -24,12 +24,6 @@ The insertion will be repeated COUNT times."
   (evil-insert-state 1)
   (add-hook 'post-command-hook #'evil-maybe-remove-spaces))
 
-;; Add ability to increase / decrease font size
-;; Seems to be broken.  Investigate.
-;;(when window-system
-;;  (set-exec-path-from-shell-PATH)
-;;  (global-set-key (kbd "s-=") 'text-scale-increase)
-;;  (global-set-key (kbd "s--") 'text-scale-decrease))
 
 
 (setq-default indent-tabs-mode nil) ; use spaces
@@ -101,13 +95,18 @@ The insertion will be repeated COUNT times."
 
 ; Speclj
 (put-clojure-indent 'describe 1)
+(put-clojure-indent 'context 2)
 (put-clojure-indent 'describe-server 1)
 (put-clojure-indent 'it 1)
 (put-clojure-indent 'before-all 1)
 (put-clojure-indent 'after-all 1)
-(put-clojure-indent 'before 1)
-(put-clojure-indent 'after 1)
-
+(put-clojure-indent 'before 0)
+(put-clojure-indent 'after 0)
+(put-clojure-indent 'around 1)
+(put-clojure-indent 'GET 2)
+(put-clojure-indent 'POST 2)
+(put-clojure-indent 'PUT 2)
+(put-clojure-indent 'DELETE 2)
 
 (add-hook 'haskell-mode-hook 'haskell-indent-mode)
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
@@ -131,6 +130,9 @@ The insertion will be repeated COUNT times."
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+
+(require 'ruby-mode)
+(add-to-list 'auto-mode-alist '("\\.rake?\\'" . ruby-mode))
 
 (setq web-mode-enable-auto-pairing )
 
@@ -217,6 +219,51 @@ The insertion will be repeated COUNT times."
 (global-set-key "\C-c\C-k" 'kill-region)
 
 
-;; Magit key bindings
 (global-set-key "\C-cms" 'magit-status)
 (global-set-key "\C-cml" 'magit-log)
+
+(defun toggle-window-split ()
+  (interactive)
+  (if (= (count-windows) 2)
+      (let* ((this-win-buffer (window-buffer))
+         (next-win-buffer (window-buffer (next-window)))
+         (this-win-edges (window-edges (selected-window)))
+         (next-win-edges (window-edges (next-window)))
+         (this-win-2nd (not (and (<= (car this-win-edges)
+                     (car next-win-edges))
+                     (<= (cadr this-win-edges)
+                     (cadr next-win-edges)))))
+         (splitter
+          (if (= (car this-win-edges)
+             (car (window-edges (next-window))))
+          'split-window-horizontally
+        'split-window-vertically)))
+    (delete-other-windows)
+    (let ((first-win (selected-window)))
+      (funcall splitter)
+      (if this-win-2nd (other-window 1))
+      (set-window-buffer (selected-window) this-win-buffer)
+      (set-window-buffer (next-window) next-win-buffer)
+      (select-window first-win)
+      (if this-win-2nd (other-window 1))))))
+
+(global-set-key (kbd "C-x |") 'toggle-window-split)
+
+
+(defun set-exec-path-from-shell-PATH ()
+  (interactive)
+  (let ((path-from-shell
+         (replace-regexp-in-string
+          "[ \t\n]*$" ""
+          (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'"))))
+    (setenv "PATH" path-from-shell)
+    (setq exec-path (split-string path-from-shell path-separator))))
+
+
+;; Add ability to increase / decrease font size
+;; Seems to be broken.  Investigate.
+(when window-system
+  (set-exec-path-from-shell-PATH)
+  ;;(global-set-key (kbd "s-=") 'text-scale-increase)
+  ;;(global-set-key (kbd "s--") 'text-scale-decrease)
+  )
