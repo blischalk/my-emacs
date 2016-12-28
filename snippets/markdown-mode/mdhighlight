@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: mdhighlight
+# key: mdhighlight
+# binding: direct-keybinding
+# --
+{% highlight $1 %}
+$0
+{% endhighlight %}

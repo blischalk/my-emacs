@@ -136,6 +136,8 @@ The insertion will be repeated COUNT times."
 
 (setq web-mode-enable-auto-pairing )
 
+(add-to-list 'load-path
+              "~/.emacs.d/plugins/yasnippet")
 (require 'yasnippet)
 (yas-global-mode 1)
 
@@ -159,6 +161,24 @@ The insertion will be repeated COUNT times."
   '((sh . t)
     (clojure . t)
     (plantuml . t)))
+
+(setq org-log-done 'time)
+(setq org-todo-keyword-faces
+      '(("TODO" . org-warning)
+        ("STARTED" . "yellow")
+        ("CANCELED" . (:foreground "blue" :weight bold))))
+(setq org-todo-keywords
+      '((sequence "TODO" "STARTED" "CANCELED" "|" "DONE" "DELEGATED")))
+
+;; This is for org-mode agenda view activation
+ (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+ ;; This is for key bindings to invoke agenda mode (see line-2)
+ (global-set-key "\C-cl" 'org-store-link)
+ (global-set-key "\C-ca" 'org-agenda)
+ (global-set-key "\C-cc" 'org-capture)
+ (global-set-key "\C-cb" 'org-iswitchb)
+
+(setq org-agenda-files (list "~/todolist.org"))
 
 (defun my-org-confirm-babel-evaluate (lang body)
     (and
@@ -267,3 +287,9 @@ The insertion will be repeated COUNT times."
   ;;(global-set-key (kbd "s-=") 'text-scale-increase)
   ;;(global-set-key (kbd "s--") 'text-scale-decrease)
   )
+
+
+;; Pretty Org mode source code
+
+(setq org-src-fontify-natively t)
+
