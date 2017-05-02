@@ -179,6 +179,7 @@ The insertion will be repeated COUNT times."
  (global-set-key "\C-cb" 'org-iswitchb)
 
 (setq org-agenda-files (list "~/todolist.org"))
+(setq org-M-RET-may-split-line nil)
 
 (defun my-org-confirm-babel-evaluate (lang body)
     (and
@@ -293,3 +294,54 @@ The insertion will be repeated COUNT times."
 
 (setq org-src-fontify-natively t)
 
+
+;; C programming settings
+
+;; (setq c-default-style "linux"
+;;       c-basic-offset 4
+;;       tab-width 4
+;;       indent-tabs-mode t)
+
+;; (require 'slime)
+;; (slime-setup '(slime-fancy slime-banner))
+
+;; (add-to-list 'load-path "/usr/local/Cellar/chicken/4.11.0/lib/chicken/8/")   ; Where Eggs are installed
+;; (autoload 'chicken-slime "chicken-slime" "SWANK backend for Chicken" t)
+;; (add-hook 'scheme-mode-hook
+;;           (lambda ()
+;;            (slime-mode t)))
+
+(setq-default c-basic-offset 8
+              tab-width 8
+              indent-tabs-mode t)
+
+
+(defun c-lineup-arglist-tabs-only (ignored)
+  "Line up argument lists by tabs, not spaces"
+  (let* ((anchor (c-langelem-pos c-syntactic-element))
+         (column (c-langelem-2nd-pos c-syntactic-element))
+         (offset (- (1+ column) anchor))
+         (steps (floor offset c-basic-offset)))
+    (* (max steps 1)
+       c-basic-offset)))
+
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            ;; Add kernel style
+            (c-add-style
+             "linux-tabs-only"
+             '("linux" (c-offsets-alist
+                        (arglist-cont-nonempty
+                         c-lineup-gcc-asm-reg
+                         c-lineup-arglist-tabs-only))))))
+
+(add-hook 'c-mode-hook
+          (lambda ()
+            (let ((filename (buffer-file-name)))
+              ;; Enable kernel mode for the appropriate files
+              (when (and filename
+                         (string-match (expand-file-name "~/src/linux-trees")
+                                       filename))
+                (setq indent-tabs-mode t)
+                (setq show-trailing-whitespace t)
+                (c-set-style "linux-tabs-only")))))
