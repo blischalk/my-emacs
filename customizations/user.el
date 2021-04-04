@@ -134,7 +134,7 @@ The insertion will be repeated COUNT times."
 (require 'ruby-mode)
 (add-to-list 'auto-mode-alist '("\\.rake?\\'" . ruby-mode))
 
-(setq web-mode-enable-auto-pairing )
+(setq web-mode-enable-auto-pairing 1)
 
 (add-to-list 'load-path
               "~/.emacs.d/plugins/yasnippet")
@@ -155,12 +155,12 @@ The insertion will be repeated COUNT times."
 (setq processing-sketchbook-dir "~/Documents/Processing")
 (setq processing-output-dir "/tmp")
 
-;; OrgMode PlantUML Stuff
-(org-babel-do-load-languages
-  'org-babel-load-languages
-  '((sh . t)
-    (clojure . t)
-    (plantuml . t)))
+;;;; OrgMode PlantUML Stuff
+;;(org-babel-do-load-languages
+;;  'org-babel-load-languages
+;;  '((sh . t)
+;;    (clojure . t)
+;;    (plantuml . t)))
 
 (setq org-log-done 'time)
 (setq org-todo-keyword-faces
